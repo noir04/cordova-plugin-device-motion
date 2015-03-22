@@ -233,7 +233,9 @@ public class AccelListener extends CordovaPlugin implements SensorEventListener 
         }
         this.setStatus(AccelListener.RUNNING);
 
-        if (this.accuracy >= SensorManager.SENSOR_STATUS_ACCURACY_MEDIUM) {
+        //if (this.accuracy >= SensorManager.SENSOR_STATUS_ACCURACY_MEDIUM)
+        if(true) // on Android 5.0 (or my phone) onAccuracyChanged is never called, this "fixes" that
+        {
 
             // Save time that event was received
             this.timestamp = System.currentTimeMillis();
